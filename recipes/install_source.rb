@@ -1,4 +1,4 @@
-include_recipe "build-essential"
+include_recipe "build-essential::default"
 include_recipe "git::default"
 
 case node['platform_family']
