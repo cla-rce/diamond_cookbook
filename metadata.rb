@@ -15,3 +15,8 @@ depends          'apt'
 depends          'yum'
 depends          'build-essential'
 depends          'git'
+depends "devscripts"
+depends "python-support"
+depends "python-configobj"
+depends "python-mock"
+depends "cdbs"
