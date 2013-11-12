@@ -32,10 +32,6 @@ case node["platform_family"]
       package "python-pysnmp4" do
         action :install
   end
-  
-  package "dpkg_package" do
-    action :install
-  end
 
     cookbook_file "#{node["diamond"]["cookbook_package"]["debian"]}" do
         backup false
