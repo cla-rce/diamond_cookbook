@@ -36,8 +36,8 @@ case node["platform_family"]
     cookbook_file "#{node["diamond"]["cookbook_package"]["debian"]}" do
         backup false
         path "#{node["diamond"]["source_path"]}"
-        action :create_if_missing
     end
+    
     dpkg_package "diamond" do
         source "#{node["diamond"]["source_path"]}"
         action :install
@@ -52,8 +52,8 @@ case node["platform_family"]
     cookbook_file "#{node["diamond"]["cookbook_package"]["redhat"]}" do
         backup false
         path "#{node["diamond"]["source_path"]}"
-        action :create_if_missing
     end
+    
     package "diamond" do
         source "#{node["diamond"]["source_path"]}"
         action :install
