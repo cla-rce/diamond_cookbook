@@ -32,23 +32,22 @@ case node["platform_family"]
       package "python-pysnmp4" do
         action :install
   end
+  
+  package "dpkg_package" do
+    action :install
+  end
 
     cookbook_file "#{node["diamond"]["cookbook_package"]["debian"]}" do
-        action :create_if_missing
         backup false
         path "#{node["diamond"]["source_path"]}"
+        action :create_if_missing
     end
-    
-    package "dpkg_package" do
-      action :install
+    dpkg_package "diamond" do
+        source "#{node["diamond"]["source_path"]}"
+        action :install
+        notifies :restart, "service[diamond]"
     end
 
-  package "diamond" do
-      source "#{node["diamond"]["source_path"]}"
-      action :install
-      version node['diamond']['version']
-      notifies :restart, "service[diamond]"
-    end
 
 
   when "redhat"
@@ -57,9 +56,9 @@ case node["platform_family"]
     cookbook_file "#{node["diamond"]["cookbook_package"]["redhat"]}" do
         backup false
         path "#{node["diamond"]["source_path"]}"
+        action :create_if_missing
     end
-    
-    rpm_package "diamond" do
+    package "diamond" do
         source "#{node["diamond"]["source_path"]}"
         action :install
         notifies :restart, "service[diamond]"
