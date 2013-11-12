@@ -4,6 +4,10 @@ case node["platform_family"]
     package "python-pysnmp4" do
       action :install
     end
+    
+    package "dpkg_package" do
+      action :install
+    end
 
   package "diamond" do
       source "#{node["diamond"]["source_path"]}"
