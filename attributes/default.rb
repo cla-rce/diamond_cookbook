@@ -8,6 +8,9 @@ default["diamond"]["source_repository"] = "git://github.com/BrightcoveOS/Diamond
 default["diamond"]["source_path"] = "/usr/local/share/diamond_src"
 default["diamond"]["source_reference"] = 'HEAD'
 default["diamond"]["add_collectors"] = ['cpu', 'diskspace', 'diskusage', 'loadavg', 'memory', 'network', 'vmstat', 'tcp']
+default["diamond"]["cookbook_package"]["debian"] = "diamond_3.4.deb"
+default["diamond"]["cookbook_package"]["redhat"] = "diamond_3.4.noarch.rpm"
+
 case node["platform_family"]
   when "debian"
     default["diamond"]["version"] = '3.0.2'
