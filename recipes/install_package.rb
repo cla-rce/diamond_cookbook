@@ -39,11 +39,15 @@ case node["platform_family"]
         path "#{node["diamond"]["source_path"]}"
     end
     
-    dpkg_package "diamond" do
-        version nil
-        source "#{node["diamond"]["source_path"]}"
-        action :install
-        notifies :restart, "service[diamond]"
+    package "dpkg_package" do
+      action :install
+    end
+
+  package "diamond" do
+      source "#{node["diamond"]["source_path"]}"
+      action :install
+      version node['diamond']['version']
+      notifies :restart, "service[diamond]"
     end
 
 

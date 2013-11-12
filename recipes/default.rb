@@ -6,10 +6,6 @@ end
 
 include_recipe "diamond::install_%s" % [node['diamond']['install_method']]
 
-# service "diamond" do
-#   action [ :enable ]
-# end
-
 if node['diamond']['graphite_server_role'].nil?
   graphite_ip = node['diamond']['graphite_server']
 else
