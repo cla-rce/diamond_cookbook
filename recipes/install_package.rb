@@ -34,6 +34,7 @@ case node["platform_family"]
   end
 
     cookbook_file "#{node["diamond"]["cookbook_package"]["debian"]}" do
+        action :create_if_missing
         backup false
         path "#{node["diamond"]["source_path"]}"
     end
