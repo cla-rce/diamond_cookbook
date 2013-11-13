@@ -11,11 +11,11 @@ default["diamond"]["add_collectors"] = ['cpu', 'diskspace', 'diskusage', 'loadav
 default["diamond"]["cookbook_package"]["debian"] = "diamond_3.4.deb"
 default["diamond"]["cookbook_package"]["redhat"] = "diamond_3.4.noarch.rpm"
 
-# case node["platform_family"]
-#   when "debian"
-#     default["diamond"]["version"] = '3.0.2'
-#   when "redhat"
-#     default["diamond"]["version"] = '3.0.2-0'
-#   else
-#     default["diamond"]["install_method"] = "source"
-# end
+case node["platform_family"]
+  when "debian"
+    default["diamond"]["version"] = '3.0.2'
+  when "redhat"
+    default["diamond"]["version"] = '3.0.2-0'
+  else
+    default["diamond"]["install_method"] = "source"
+end
