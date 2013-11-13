@@ -39,7 +39,7 @@ case node["platform_family"]
         path "#{node["diamond"]["source_path"]}"
     end
     
-    dpkg_package "diamond" do
+    package "diamond" do
         source "#{node["diamond"]["source_path"]}"
         action :install
         notifies :restart, "service[diamond]"
