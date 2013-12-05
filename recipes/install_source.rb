@@ -1,5 +1,6 @@
 include_recipe "build-essential::default"
 include_recipe "git::default"
+package "python-configobj"
 
 case node['platform_family']
 when "debian"
