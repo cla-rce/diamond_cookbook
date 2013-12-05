@@ -15,7 +15,7 @@ when "debian"
 when "rhel"
   include_recipe "yum::default"
   
-  package "python-configobj"
+  yum_package "python-configobj"
   package "rpm-build"
 end
 
