@@ -11,7 +11,7 @@ when "debian"
   package "python-configobj"
   package "python-mock"
   package "cdbs"
-when "redhat"
+when "rhel"
   include_recipe "yum::default"
   
   package "python-configobj"
