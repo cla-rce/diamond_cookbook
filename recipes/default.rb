@@ -19,6 +19,7 @@ else
 end
 
 directory "/etc/diamond" 
+directory "/etc/diamond/collectors" 
 
 template "/etc/diamond/diamond.conf" do
   source "diamond.conf.erb"
