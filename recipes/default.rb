@@ -18,6 +18,8 @@ else
   end
 end
 
+directory "/etc/diamond" 
+
 template "/etc/diamond/diamond.conf" do
   source "diamond.conf.erb"
   owner "root"
