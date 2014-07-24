@@ -6,10 +6,6 @@ end
 
 include_recipe "diamond::install_%s" % [node['diamond']['install_method']]
 
-# service "diamond" do
-#   action [ :enable ]
-# end
-
 if node['diamond']['graphite_server_role'].nil?
   graphite_ip = node['diamond']['graphite_server']
 else
@@ -22,6 +18,9 @@ else
   end
 end
 
+directory "/etc/diamond" 
+directory "/etc/diamond/collectors" 
+
 template "/etc/diamond/diamond.conf" do
   source "diamond.conf.erb"
   owner "root"
@@ -32,7 +31,6 @@ template "/etc/diamond/diamond.conf" do
     :graphite_ip => graphite_ip
   )
 end
-
 
 # Install collectors
 node['diamond']['add_collectors'].each do |collector|

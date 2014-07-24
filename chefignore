@@ -67,12 +67,6 @@ Procfile
 */.hg/*
 */.svn/*
 
-# Berkshelf #
-#############
-Berksfile
-Berksfile.lock
-cookbooks/*
-tmp
 
 # Cookbooks #
 #############
@@ -86,10 +80,6 @@ Strainerfile
 .colander
 .strainer
 
-# Vagrant #
-###########
-.vagrant
-Vagrantfile
 
 # Travis #
 ##########
