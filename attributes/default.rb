@@ -10,6 +10,7 @@ default["diamond"]["source_reference"] = 'HEAD'
 default["diamond"]["add_collectors"] = ['cpu', 'diskspace', 'diskusage', 'loadavg', 'memory', 'network', 'vmstat', 'tcp']
 default["diamond"]["cookbook_package"]["debian"] = "diamond_3.4.deb"
 default["diamond"]["cookbook_package"]["redhat"] = "diamond_3.4.noarch.rpm"
+default["diamond"]["log_level"] = "INFO"
 
 case node["platform_family"]
   when "debian"
