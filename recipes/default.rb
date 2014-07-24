@@ -4,6 +4,9 @@ service "diamond" do
   action [ :nothing ]
 end
 
+directory "/etc/diamond" 
+directory "/etc/diamond/collectors" 
+
 include_recipe "diamond::install_%s" % [node['diamond']['install_method']]
 
 if node['diamond']['graphite_server_role'].nil?
@@ -17,9 +20,6 @@ else
     graphite_ip = graphite_nodes[0]["ipaddress"]
   end
 end
-
-directory "/etc/diamond" 
-directory "/etc/diamond/collectors" 
 
 template "/etc/diamond/diamond.conf" do
   source "diamond.conf.erb"
